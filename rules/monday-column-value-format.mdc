@@ -1,0 +1,35 @@
+---
+description: Flag malformed Monday.com column value JSON including incorrect status, date, timeline, and people column formats.
+alwaysApply: false
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.py"
+---
+
+# Monday Column Value Format
+
+## Patterns to Flag
+
+- Status columns: using numeric index instead of label object (`{"label": "Done"}` shape expected per API docs)
+- Date columns: wrong format (must be ISO date string or API-expected shape, not arbitrary strings)
+- Timeline columns: missing `from` and/or `to` keys, or wrong date format inside timeline JSON
+- People columns: missing `personsAndTeams` entries or missing `kind` field (`"person"` / `"team"`) where required
+- Numbers columns: passing strings where numbers are required, or wrong JSON wrapper for numeric columns
+- Outer object keys using column type names (`status`, `date`) instead of the board's column ID string
+- Unquoted or invalid JSON strings in column value payloads (broken escaping, single quotes in JSON)
+
+## What to Do
+
+- Use the column ID from `get_board_info` or schema as the only outer key for each column value object
+- Match `get_column_type_info` / docs for each column type's exact JSON shape before sending `change_item_column_values` or mutations
+- For status, use label-based payloads as documented; avoid relying on internal indices unless the API explicitly allows them
+- For timeline, always supply both `from` and `to` in the documented format
+- For people, include `kind` and valid IDs in `personsAndTeams` as required by the API version in use
+- Serialize column values as proper JSON; validate with `JSON.stringify` / parsers before sending
+
+## Exceptions
+
+- Descriptive comments or markdown docs showing wrong examples labeled as anti-patterns
+- Test doubles that intentionally use minimal stubs when not exercising Monday serialization
+- Code that only reads column values from API responses (parsing), not constructing mutation payloads

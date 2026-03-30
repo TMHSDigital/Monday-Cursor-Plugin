@@ -1,0 +1,38 @@
+---
+description: Flag Monday.com GraphQL anti-patterns including over-fetching, missing pagination, and unbounded queries.
+alwaysApply: false
+globs:
+  - "**/*.graphql"
+  - "**/*.gql"
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.py"
+---
+
+# Monday GraphQL Best Practices
+
+## Patterns to Flag
+
+- Queries requesting all fields without specifying needed columns (`column_values` without `ids` filter)
+- Missing `limit` on `items_page`, `boards`, or paginated queries
+- Using deprecated `items` field instead of `items_page` with cursor pagination
+- Nested queries deeper than 3 levels without complexity checks
+- Queries inside loops without batching (N+1 query patterns)
+- Missing error handling on GraphQL responses (not checking `errors` array)
+- Hardcoded board/item IDs in production code (should be configurable)
+
+## What to Do
+
+- Always specify `limit` on paginated queries (default varies, explicit is safer)
+- Use `items_page` with `cursor` for pagination, not `items` with `page`/`limit`
+- Filter `column_values` by `ids` to only fetch needed columns
+- Add `complexity { before after reset_in_x_seconds }` to monitor query cost
+- Batch related queries into a single GraphQL request when possible
+- Check for `errors` in every API response before accessing `data`
+- Use variables for IDs and dynamic values instead of string interpolation
+
+## Exceptions
+
+- Schema introspection queries (which necessarily request broad type info)
+- One-off scripts or CLI tools where performance is not critical
+- Queries using `all_monday_api` MCP tool (which handles pagination internally for some operations)

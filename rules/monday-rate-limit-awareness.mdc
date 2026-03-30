@@ -1,0 +1,36 @@
+---
+description: Flag missing rate limit handling, unbounded API loops, and absent complexity budget awareness in Monday.com API code.
+alwaysApply: false
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.py"
+---
+
+# Monday Rate Limit Awareness
+
+## Patterns to Flag
+
+- API calls inside unbounded loops (`while(true)`, `for` without limit) without delay or backoff
+- Missing retry logic after receiving 429 (Too Many Requests) or complexity limit errors
+- No delay/sleep between rapid sequential API calls
+- Ignoring `reset_in_x_seconds` from complexity responses
+- `create_board` or `duplicate_board` mutations called more than 40 times without rate awareness
+- Bulk operations (creating many items) without batching or throttling
+- Missing `complexity` field on queries that could be expensive
+
+## What to Do
+
+- Add exponential backoff on 429 responses: wait `reset_in_x_seconds` then retry
+- Batch item creation: use a single mutation with multiple creates when possible
+- Add `complexity { before after reset_in_x_seconds }` to expensive queries
+- Implement a delay (minimum 100ms) between sequential API calls in loops
+- Track complexity budget: 10,000,000 points per minute (varies by plan)
+- For bulk operations, process in chunks (e.g., 50 items per batch) with delays
+- Log complexity costs during development to identify expensive operations
+
+## Exceptions
+
+- Single API calls (not in loops) where rate limiting is unlikely
+- MCP tool calls (the MCP server handles its own rate limiting)
+- Test/development code using low-volume test data

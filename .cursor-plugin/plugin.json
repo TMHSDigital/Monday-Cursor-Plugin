@@ -1,0 +1,38 @@
+{
+  "name": "monday-cursor-plugin",
+  "displayName": "Monday Developer Tools",
+  "version": "0.1.0",
+  "description": "21 skills, 8 rules for Monday.com workflows in Cursor -- boards, items, sprints, docs, dashboards, and the full GraphQL API.",
+  "author": {
+    "name": "TMHSDigital",
+    "url": "https://github.com/TMHSDigital"
+  },
+  "homepage": "https://tmhsdigital.github.io/Monday-Cursor-Plugin/",
+  "repository": "https://github.com/TMHSDigital/Monday-Cursor-Plugin",
+  "license": "CC-BY-NC-ND-4.0",
+  "keywords": [
+    "monday",
+    "project-management",
+    "boards",
+    "graphql",
+    "sprints",
+    "work-os",
+    "dashboards",
+    "items",
+    "automations",
+    "cursor-plugin"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "monday.com",
+    "work-os",
+    "boards",
+    "items",
+    "dashboards",
+    "graphql",
+    "project-management"
+  ],
+  "logo": "assets/logo.png",
+  "skills": "./skills/",
+  "rules": "./rules/"
+}

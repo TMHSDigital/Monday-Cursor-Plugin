@@ -1,0 +1,31 @@
+---
+description: Flag Monday.com board anti-patterns including excessive columns, missing groups, and inconsistent naming conventions.
+alwaysApply: false
+globs:
+  - "**/*.json"
+  - "**/*.ts"
+---
+
+# Monday Board Structure
+
+## Patterns to Flag
+
+- Board definitions or migrations that create roughly 30 or more columns on a single board without strong justification
+- Boards modeled with a single group while item count or workflow implies multiple phases (everything in "Group Title" only)
+- Mixed column naming conventions on the same board (e.g., `camelCase` and `snake_case` column titles or IDs in config)
+- Status columns with large sets of labels where most are unused or duplicate semantics
+- Project or timeline-oriented boards missing timeline and/or date columns when scheduling is clearly required
+
+## What to Do
+
+- Split wide boards into linked boards, views, or connected items; archive unused columns
+- Use multiple groups for stages, teams, or batches; align group names with the actual workflow
+- Pick one naming convention for titles and stable identifiers in JSON/config and apply it consistently
+- Trim status labels to active values; document mapping in team docs
+- Add timeline or date columns for boards that track deadlines, sprints, or Gantt-style work
+
+## Exceptions
+
+- Import/migration JSON that is intermediate and will be normalized in a follow-up step
+- Generated snapshots from the API for read-only reporting (not authoring new structure)
+- Template JSON in documentation marked as illustrative only

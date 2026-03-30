@@ -1,0 +1,58 @@
+# Monday Cursor Plugin -- Contributor Conventions
+
+## Plugin Structure
+
+- Skills live in `skills/<skill-name>/SKILL.md` (kebab-case directory names)
+- Rules live in `rules/<rule-name>.mdc` (kebab-case filenames)
+- All skill and rule names start with `monday-`
+- Plugin manifest: `.cursor-plugin/plugin.json`
+- Logo: `assets/logo.png`
+
+## Skill Format
+
+Every SKILL.md must have:
+1. YAML frontmatter with `name` (matching directory name) and `description` (>= 20 chars)
+2. Sections in this order:
+   - `# <Title>`
+   - `## Trigger`
+   - `## Required Inputs`
+   - `## Workflow`
+   - `## Key References`
+   - `## Example Interaction`
+   - `## MCP Usage`
+   - `## Common Pitfalls`
+   - `## See Also` (relative links to other skills: `../other-skill/SKILL.md`)
+
+## Rule Format
+
+Every .mdc rule must have:
+1. YAML frontmatter with `description` and `alwaysApply` (boolean)
+2. If `alwaysApply: false`, must include `globs` array
+3. Body sections: Patterns to Flag, What to Do, Exceptions
+
+## MCP Tool Naming
+
+- Reference Monday MCP tools by their exact names (e.g., `create_board`, `get_board_info`)
+- For operations not covered by dedicated MCP tools, provide `all_monday_api` GraphQL recipes
+- Document which MCP tools each skill uses in the MCP Usage table
+
+## Content Rules
+
+- No em dashes; use double hyphens `--` instead
+- No hardcoded API tokens or secrets in any file
+- Column value JSON examples must use the column ID as the outer key, not the type name
+- GraphQL examples should use variables for dynamic values
+
+## Release Checklist
+
+When releasing a new version:
+1. Bump version in `.cursor-plugin/plugin.json`
+2. Update skill/rule counts in `plugin.json` description
+3. Update CHANGELOG.md with Added/Changed/Fixed sections
+4. Update README.md counts and tables
+5. Update CLAUDE.md tables
+6. Update ROADMAP.md status
+7. Update `docs/index.html` stats
+8. Run `pytest tests/ -v` and verify all pass
+9. Tag the release: `git tag v<version>`
+10. Create GitHub release with changelog

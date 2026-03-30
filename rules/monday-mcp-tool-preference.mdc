@@ -1,0 +1,24 @@
+---
+description: Flag raw HTTP calls to api.monday.com when Monday MCP tools are available in Cursor.
+alwaysApply: true
+---
+
+# Monday MCP Tool Preference
+
+## Patterns to Flag
+
+- `fetch`, `axios`, or `requests` calls targeting `https://api.monday.com` or `api.monday.com`
+- `graphql-request` or similar clients posting directly to the Monday GraphQL endpoint from editor-bound code
+- Raw HTTP `POST` bodies with Monday API tokens to `v2` GraphQL when a first-party MCP tool covers the same operation
+
+## What to Do
+
+- Prefer Monday MCP tools in Cursor: `get_board_info`, `get_board_items_page`, `create_item`, `change_item_column_values`, `all_monday_api`, and others listed in the plugin docs for the matching operation
+- Use `all_monday_api` only when no dedicated tool exists or for one-off advanced queries still reviewed for complexity and pagination
+- Keep API tokens in MCP / environment configuration the host provides, not duplicated in ad-hoc scripts unless necessary for non-Cursor automation
+
+## Exceptions
+
+- Standalone CLIs, servers, or CI jobs that do not run inside Cursor (no MCP available)
+- Official Monday SDKs used in deployed services where MCP is not in the execution path
+- Code comments or docs referencing example HTTP shapes without executing requests

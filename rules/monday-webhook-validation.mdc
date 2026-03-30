@@ -1,0 +1,32 @@
+---
+description: Flag missing webhook challenge verification, unvalidated payloads, and exposed webhook URLs in Monday.com integrations.
+alwaysApply: false
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.py"
+---
+
+# Monday Webhook Validation
+
+## Patterns to Flag
+
+- HTTP handlers for Monday webhooks that do not respond to subscription challenge requests (echo `challenge` from body)
+- Hardcoded or logged full webhook URLs in source (reusable endpoints that should stay secret)
+- Processing webhook POST bodies without verifying signing secret / HMAC or equivalent when Monday provides it
+- Public webhook routes with no authentication, IP allowlisting, or shared-secret validation beyond challenge
+- Handlers that run business logic without checking `event.type` or supported event names (treating all payloads the same)
+
+## What to Do
+
+- On webhook setup, parse JSON body; if `challenge` is present, return it in the response body as Monday expects
+- Store webhook URL configuration in environment or secure config, not in committed source
+- Verify signatures using the signing secret from environment variables when the platform supports it
+- Reject unknown event types early; validate minimal schema before side effects
+- Use HTTPS endpoints only; avoid echoing secrets or tokens in logs
+
+## Exceptions
+
+- Documentation snippets using `https://example.com/webhook` style placeholders
+- Local tunnel URLs in `.env.example` without real hostnames
+- Integration tests that mock the challenge flow explicitly

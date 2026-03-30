@@ -1,0 +1,29 @@
+---
+description: Flag hardcoded Monday.com API tokens, OAuth secrets, and webhook signing secrets in source code.
+alwaysApply: true
+---
+
+# Monday API Token Safety
+
+## Patterns to Flag
+
+- Hardcoded strings matching Monday.com API token patterns (`eyJhbG...` JWT-style tokens)
+- Variables containing API tokens assigned as string literals: `token = "..."`, `apiKey = "..."`
+- Monday.com API URLs with inline tokens: `api.monday.com` with `Authorization` header containing literal strings
+- OAuth client secrets or signing secrets in source files
+- Webhook signing secrets stored as plain strings
+- `.env` file contents committed to version control
+
+## What to Do
+
+- Store tokens in environment variables: `process.env.MONDAY_API_TOKEN` or `os.environ["MONDAY_API_TOKEN"]`
+- Use `.env` files locally with `.gitignore` protection
+- For CI/CD, use repository secrets or vault services
+- For webhooks, validate signatures using environment-stored signing secrets
+- Reference `.env.example` for expected variable names without actual values
+
+## Exceptions
+
+- Token patterns in documentation, comments explaining format, or test fixtures using obviously fake values
+- References to `process.env.MONDAY_API_TOKEN` or equivalent environment variable access
+- The `.env.example` file (which should never contain real values)

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monday Developer Tools -- Monday.com for Cursor IDE</title>
+  <meta name="description" content="Monday.com project management for Cursor IDE. 21 skills, 8 rules, ~45 MCP tools -- boards, items, sprints, docs, dashboards, and the full GraphQL API." />
+  <meta property="og:title" content="Monday Developer Tools" />
+  <meta property="og:description" content="Monday.com project management for Cursor IDE. 21 skills, 8 rules, ~45 MCP tools." />
+  <meta property="og:image" content="assets/og-card.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --primary:#6C3EC6;
+      --primary-dark:#4B286D;
+      --accent:#9D60F7;
+      --light-bg:#F5F6F8;
+      --white:#FFFFFF;
+      --text:#1C1F26;
+      --text-muted:#676879;
+      --border:#E6E9EF;
+      --radius:12px;
+      --radius-sm:8px;
+      --shadow:0 2px 12px rgba(108,62,198,.08);
+      --shadow-lg:0 8px 32px rgba(108,62,198,.12);
+      --max-w:1120px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* ── Nav ─────────────────────────────────── */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:var(--text)}
+    .nav-brand img{width:28px;height:28px;border-radius:6px}
+    .nav-links{display:flex;gap:24px;font-size:14px;font-weight:500}
+    .nav-links a{color:var(--text-muted);transition:color .15s}
+    .nav-links a:hover{color:var(--primary);text-decoration:none}
+    @media(max-width:640px){.nav-links{display:none}}
+
+    /* ── Hero ────────────────────────────────── */
+    .hero{background:linear-gradient(160deg,var(--primary-dark) 0%,var(--primary) 50%,var(--accent) 100%);color:var(--white);text-align:center;padding:80px 24px 72px}
+    .hero-logo{width:88px;height:88px;border-radius:20px;margin-bottom:24px;box-shadow:0 4px 24px rgba(0,0,0,.25)}
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+    .hero p{font-size:clamp(1rem,2.5vw,1.25rem);opacity:.88;max-width:560px;margin:0 auto 32px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:var(--radius);font-weight:600;font-size:15px;transition:transform .15s,box-shadow .15s;cursor:pointer;border:none}
+    .btn:hover{transform:translateY(-1px);text-decoration:none}
+    .btn-white{background:var(--white);color:var(--primary)}
+    .btn-white:hover{box-shadow:0 4px 20px rgba(0,0,0,.18)}
+    .btn-outline{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.4)}
+    .btn-outline:hover{border-color:var(--white);box-shadow:0 4px 20px rgba(255,255,255,.12)}
+    .hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .gh-icon{width:18px;height:18px;fill:currentColor}
+
+    /* ── Stats ────────────────────────────────── */
+    .stats{background:var(--white);border-bottom:1px solid var(--border)}
+    .stats-inner{max-width:var(--max-w);margin:0 auto;padding:32px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+    .stat-value{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:var(--primary)}
+    .stat-label{font-size:14px;color:var(--text-muted);font-weight:500;margin-top:2px}
+
+    /* ── Section base ────────────────────────── */
+    section{padding:72px 24px}
+    .section-inner{max-width:var(--max-w);margin:0 auto}
+    .section-title{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;text-align:center;margin-bottom:8px}
+    .section-sub{text-align:center;color:var(--text-muted);font-size:15px;max-width:640px;margin:0 auto 40px}
+
+    /* ── Features ─────────────────────────────── */
+    .features{background:var(--light-bg)}
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+    .feature-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:box-shadow .2s,transform .2s}
+    .feature-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+    .feature-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;background:linear-gradient(135deg,var(--primary),var(--accent));color:var(--white)}
+    .feature-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
+    .feature-card p{font-size:14px;color:var(--text-muted);line-height:1.5}
+
+    /* ── Tables ───────────────────────────────── */
+    .table-section{background:var(--white)}
+    .table-section:nth-of-type(even){background:var(--light-bg)}
+    .category-label{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;background:var(--primary);color:var(--white);margin-bottom:16px}
+    table{width:100%;border-collapse:collapse;font-size:14px;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    thead{background:var(--primary-dark);color:var(--white)}
+    th{padding:12px 16px;text-align:left;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+    td{padding:12px 16px;border-bottom:1px solid var(--border)}
+    tr:last-child td{border-bottom:none}
+    tbody tr:hover{background:rgba(108,62,198,.03)}
+    .skill-name{font-family:'Inter',monospace;font-weight:600;color:var(--primary);white-space:nowrap;font-size:13px}
+
+    /* ── Skills grouped ───────────────────────── */
+    .skills-group{margin-bottom:32px}
+    .skills-group:last-child{margin-bottom:0}
+
+    /* ── MCP ──────────────────────────────────── */
+    .mcp-section{background:var(--light-bg)}
+    .mcp-callout{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:var(--white);border-radius:var(--radius);padding:32px;margin-bottom:32px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .mcp-callout-text h3{font-size:18px;font-weight:700;margin-bottom:4px}
+    .mcp-callout-text p{opacity:.85;font-size:14px}
+    .mcp-icon{font-size:36px;flex-shrink:0}
+    .mcp-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .mcp-cat{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 18px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px}
+    .mcp-cat span{font-size:18px}
+    .mcp-cat-count{margin-left:auto;font-size:12px;color:var(--text-muted);font-weight:500}
+
+    /* ── Install ──────────────────────────────── */
+    .install{background:var(--white)}
+    .install-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+    .install-card{background:var(--light-bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px}
+    .install-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
+    .install-card p{font-size:14px;color:var(--text-muted);margin-bottom:14px}
+    pre{background:var(--primary-dark);color:#e0d4f7;border-radius:var(--radius-sm);padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6;font-family:'Cascadia Code','Fira Code','Consolas',monospace}
+    code{font-family:inherit}
+
+    /* ── Roadmap ──────────────────────────────── */
+    .roadmap{background:var(--light-bg)}
+    .timeline{position:relative;max-width:720px;margin:0 auto}
+    .timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:3px;background:var(--border);border-radius:2px}
+    .timeline-item{position:relative;padding-left:60px;margin-bottom:32px}
+    .timeline-item:last-child{margin-bottom:0}
+    .timeline-dot{position:absolute;left:16px;top:4px;width:20px;height:20px;border-radius:50%;border:3px solid var(--primary);background:var(--white);z-index:1}
+    .timeline-item.done .timeline-dot{background:var(--primary);box-shadow:0 0 0 4px rgba(108,62,198,.2)}
+    .timeline-version{font-weight:800;font-size:16px;color:var(--primary)}
+    .timeline-theme{font-weight:600;color:var(--text);margin-left:8px}
+    .timeline-desc{font-size:14px;color:var(--text-muted);margin-top:2px}
+    .timeline-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-left:8px;vertical-align:middle}
+    .badge-done{background:var(--primary);color:var(--white)}
+    .badge-planned{background:var(--border);color:var(--text-muted)}
+
+    /* ── Footer ───────────────────────────────── */
+    footer{background:var(--primary-dark);color:rgba(255,255,255,.7);text-align:center;padding:40px 24px;font-size:14px}
+    footer a{color:var(--white);font-weight:600}
+    footer .footer-line{margin-top:8px;font-size:12px;opacity:.6}
+
+    /* ── Responsive ───────────────────────────── */
+    @media(max-width:600px){
+      .hero{padding:56px 20px 48px}
+      section{padding:48px 16px}
+      .stats-inner{grid-template-columns:1fr;gap:20px}
+      .mcp-callout{flex-direction:column;text-align:center}
+      .install-options{grid-template-columns:1fr}
+      .timeline::before{left:18px}
+      .timeline-item{padding-left:50px}
+      .timeline-dot{left:10px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img src="assets/logo.png" alt="" />
+      Monday Developer Tools
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#skills">Skills</a>
+      <a href="#rules">Rules</a>
+      <a href="#mcp">MCP Tools</a>
+      <a href="#install">Install</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <img src="assets/logo.png" alt="Monday Developer Tools logo" class="hero-logo" />
+  <h1>Monday Developer Tools</h1>
+  <p>Monday.com project management for Cursor IDE -- boards, items, sprints, docs, dashboards, and the full GraphQL API.</p>
+  <div class="hero-buttons">
+    <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin" class="btn btn-white">
+      <svg class="gh-icon" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+    <a href="#install" class="btn btn-outline">Get Started</a>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-value">21</div>
+      <div class="stat-label">Skills</div>
+    </div>
+    <div>
+      <div class="stat-value">8</div>
+      <div class="stat-label">Rules</div>
+    </div>
+    <div>
+      <div class="stat-value">~45</div>
+      <div class="stat-label">MCP Tools</div>
+    </div>
+  </div>
+</div>
+
+<!-- Features -->
+<section class="features" id="features">
+  <div class="section-inner">
+    <h2 class="section-title">What It Does</h2>
+    <p class="section-sub">Natural-language project management inside your IDE. Ask Cursor to manage Monday.com -- it handles the rest.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#9776;</div>
+        <h3>Boards &amp; Items</h3>
+        <p>Create, configure, duplicate, archive, and delete boards. Manage items, subitems, groups, and column values -- all from chat.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9203;</div>
+        <h3>Sprint Management</h3>
+        <p>Plan iterations, review velocity, analyze burndown, and capture meeting notes -- directly from Cursor.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128202;</div>
+        <h3>Dashboards &amp; Charts</h3>
+        <p>Build dashboards, add widgets, render pie/bar charts and battery indicators from live board data.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128196;</div>
+        <h3>Docs &amp; Updates</h3>
+        <p>Create Monday Docs, post updates with @mentions, send notifications, and manage version history.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#9889;</div>
+        <h3>Automation &amp; Forms</h3>
+        <p>Set up automation recipes, build forms with conditional logic, and manage webhooks with JWT auth.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128268;</div>
+        <h3>GraphQL API</h3>
+        <p>Full schema reference, query building, pagination, complexity budgets, and an escape hatch for arbitrary queries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="table-section" id="skills">
+  <div class="section-inner">
+    <h2 class="section-title">21 Skills</h2>
+    <p class="section-sub">Step-by-step workflows that guide the Cursor agent through Monday.com operations.</p>
+
+    <div class="skills-group">
+      <span class="category-label">Core</span>
+      <table>
+        <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="skill-name">monday-board-management</td><td>Create, configure, duplicate, archive, delete boards; columns, groups, permissions</td></tr>
+          <tr><td class="skill-name">monday-item-operations</td><td>Create, update, move, archive, delete items and subitems</td></tr>
+          <tr><td class="skill-name">monday-workspace-organizer</td><td>Workspaces, folders, board hierarchy</td></tr>
+          <tr><td class="skill-name">monday-api-reference</td><td>GraphQL schema, query building, pagination, complexity, escape hatch</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="skills-group">
+      <span class="category-label">Views &amp; Reporting</span>
+      <table>
+        <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="skill-name">monday-dashboard-builder</td><td>Create dashboards, widgets, chart types, connect boards</td></tr>
+          <tr><td class="skill-name">monday-board-insights</td><td>Aggregate, filter, analyze board data for reporting</td></tr>
+          <tr><td class="skill-name">monday-chart-visualization</td><td>Render pie/bar charts, battery widgets from board data</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="skills-group">
+      <span class="category-label">Collaboration</span>
+      <table>
+        <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="skill-name">monday-updates-and-communication</td><td>Post updates, replies, mentions; read update history</td></tr>
+          <tr><td class="skill-name">monday-docs-management</td><td>Create, read, append Monday Docs; version history</td></tr>
+          <tr><td class="skill-name">monday-notifications</td><td>Bell and email notifications</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="skills-group">
+      <span class="category-label">Dev &amp; Sprints</span>
+      <table>
+        <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="skill-name">monday-sprint-planning</td><td>Sprint boards, metadata, iteration planning</td></tr>
+          <tr><td class="skill-name">monday-sprint-review</td><td>Completed sprint analysis, velocity, burndown</td></tr>
+          <tr><td class="skill-name">monday-notetaker-meetings</td><td>Meeting notes, summaries, action items, transcripts</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="skills-group">
+      <span class="category-label">Automation</span>
+      <table>
+        <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="skill-name">monday-workflow-automation</td><td>Automation recipes, triggers, conditions, actions</td></tr>
+          <tr><td class="skill-name">monday-form-builder</td><td>Forms, questions, conditional logic</td></tr>
+          <tr><td class="skill-name">monday-webhook-management</td><td>Webhook CRUD, challenge verification, JWT auth</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="skills-group">
+      <span class="category-label">Project Management</span>
+      <table>
+        <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="skill-name">monday-project-tracking</td><td>Timeline, dependencies, critical path, status reporting</td></tr>
+          <tr><td class="skill-name">monday-resource-management</td><td>Team assignment, workload, capacity planning</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="skills-group">
+      <span class="category-label">Administration</span>
+      <table>
+        <thead><tr><th>Skill</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="skill-name">monday-user-and-team-management</td><td>Users, teams, permissions, roles</td></tr>
+          <tr><td class="skill-name">monday-column-types-guide</td><td>Column type reference, value formats</td></tr>
+          <tr><td class="skill-name">monday-tags-and-assets</td><td>Tag management, file/asset operations</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- Rules -->
+<section class="table-section" id="rules" style="background:var(--light-bg)">
+  <div class="section-inner">
+    <h2 class="section-title">8 Rules</h2>
+    <p class="section-sub">Guardrails and best practices that run automatically -- catching anti-patterns before they ship.</p>
+    <table>
+      <thead><tr><th>Rule</th><th>What It Catches</th></tr></thead>
+      <tbody>
+        <tr><td class="skill-name">API Token Safety</td><td>Hardcoded API tokens, OAuth secrets, webhook signing secrets</td></tr>
+        <tr><td class="skill-name">GraphQL Best Practices</td><td>Over-fetching, missing pagination, unbounded queries</td></tr>
+        <tr><td class="skill-name">Rate Limit Awareness</td><td>Missing retry/backoff, unbounded API loops, missing complexity budgets</td></tr>
+        <tr><td class="skill-name">Column Value Format</td><td>Malformed column value JSON for status, date, timeline, people columns</td></tr>
+        <tr><td class="skill-name">Webhook Validation</td><td>Missing challenge verification, unvalidated payloads, exposed URLs</td></tr>
+        <tr><td class="skill-name">MCP Tool Preference</td><td>Raw fetch/axios calls to api.monday.com when MCP tools are available</td></tr>
+        <tr><td class="skill-name">Board Structure</td><td>Too many columns, missing groups, inconsistent naming</td></tr>
+        <tr><td class="skill-name">Error Handling</td><td>Unchecked API responses, missing error parsing</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MCP Tools -->
+<section class="mcp-section" id="mcp">
+  <div class="section-inner">
+    <h2 class="section-title">~45 MCP Tools</h2>
+    <p class="section-sub">Powered by the official Monday.com MCP plugin -- install it from the Cursor Marketplace.</p>
+
+    <div class="mcp-callout">
+      <div class="mcp-icon">&#128268;</div>
+      <div class="mcp-callout-text">
+        <h3>Official Monday.com MCP Plugin</h3>
+        <p>No custom server needed. Install <strong>plugin-monday.com-monday</strong> from the Cursor Marketplace. Skills call MCP tools directly -- authentication, GraphQL, and error handling are built in.</p>
+      </div>
+    </div>
+
+    <div class="mcp-cats">
+      <div class="mcp-cat"><span>&#128269;</span> Context &amp; Search <span class="mcp-cat-count">3 tools</span></div>
+      <div class="mcp-cat"><span>&#9776;</span> Boards, Items &amp; Updates <span class="mcp-cat-count">11 tools</span></div>
+      <div class="mcp-cat"><span>&#128193;</span> Workspaces &amp; Folders <span class="mcp-cat-count">7 tools</span></div>
+      <div class="mcp-cat"><span>&#128196;</span> Docs <span class="mcp-cat-count">3 tools</span></div>
+      <div class="mcp-cat"><span>&#128202;</span> Dashboards &amp; Widgets <span class="mcp-cat-count">3 tools</span></div>
+      <div class="mcp-cat"><span>&#128203;</span> Forms <span class="mcp-cat-count">4 tools</span></div>
+      <div class="mcp-cat"><span>&#9203;</span> Sprints &amp; Meetings <span class="mcp-cat-count">4 tools</span></div>
+      <div class="mcp-cat"><span>&#128268;</span> API &amp; Schema <span class="mcp-cat-count">4 tools</span></div>
+      <div class="mcp-cat"><span>&#127912;</span> UI Components <span class="mcp-cat-count">4 tools</span></div>
+      <div class="mcp-cat"><span>&#128276;</span> Notifications <span class="mcp-cat-count">1 tool</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Install -->
+<section class="install" id="install">
+  <div class="section-inner">
+    <h2 class="section-title">Installation</h2>
+    <p class="section-sub">Two ways to get started. Requires <a href="https://cursor.com/">Cursor IDE</a> and the Monday.com MCP plugin from the marketplace.</p>
+
+    <div class="install-options">
+      <div class="install-card">
+        <h3>Option 1 -- Cursor Marketplace</h3>
+        <p>Search for <strong>Monday Developer Tools</strong> in the Cursor plugin marketplace and install.</p>
+      </div>
+
+      <div class="install-card">
+        <h3>Option 2 -- Local Symlink (Windows)</h3>
+        <p>Clone the repo, then symlink into your Cursor plugins directory (run as Administrator):</p>
+        <pre><code>New-Item -ItemType SymbolicLink `
+  -Path "$env:USERPROFILE\.cursor\plugins\monday-developer-tools" `
+  -Target "C:\path\to\Monday-Cursor-Plugin"</code></pre>
+      </div>
+
+      <div class="install-card">
+        <h3>Option 2 -- Local Symlink (macOS / Linux)</h3>
+        <p>Clone the repo, then symlink:</p>
+        <pre><code>ln -s /path/to/Monday-Cursor-Plugin \
+  ~/.cursor/plugins/monday-developer-tools</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section class="roadmap" id="roadmap">
+  <div class="section-inner">
+    <h2 class="section-title">Roadmap</h2>
+    <p class="section-sub">Incremental releases -- each version adds 3 skills and 1 rule.</p>
+
+    <div class="timeline">
+      <div class="timeline-item done">
+        <div class="timeline-dot"></div>
+        <div>
+          <span class="timeline-version">v0.1.0</span>
+          <span class="timeline-theme">Foundation</span>
+          <span class="timeline-badge badge-done">Done</span>
+          <div class="timeline-desc">6 core skills, 3 rules, plugin scaffold, tests, CI</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <span class="timeline-version">v0.2.0</span>
+          <span class="timeline-theme">Views &amp; Reporting</span>
+          <span class="timeline-badge badge-planned">Planned</span>
+          <div class="timeline-desc">Dashboard builder, board insights, chart visualization, column value format rule</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <span class="timeline-version">v0.3.0</span>
+          <span class="timeline-theme">Collaboration</span>
+          <span class="timeline-badge badge-planned">Planned</span>
+          <div class="timeline-desc">Updates, docs management, notifications, webhook validation rule</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <span class="timeline-version">v0.4.0</span>
+          <span class="timeline-theme">Dev &amp; Sprints</span>
+          <span class="timeline-badge badge-planned">Planned</span>
+          <div class="timeline-desc">Sprint planning, sprint review, notetaker meetings, error handling rule</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <span class="timeline-version">v0.5.0</span>
+          <span class="timeline-theme">Automation</span>
+          <span class="timeline-badge badge-planned">Planned</span>
+          <div class="timeline-desc">Workflow automation, form builder, webhook management, MCP tool preference rule</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <span class="timeline-version">v0.6.0</span>
+          <span class="timeline-theme">Project Management</span>
+          <span class="timeline-badge badge-planned">Planned</span>
+          <div class="timeline-desc">Project tracking, resource management, tags and assets, board structure rule</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div>
+          <span class="timeline-version">v1.0.0</span>
+          <span class="timeline-theme">Stable</span>
+          <span class="timeline-badge badge-planned">Planned</span>
+          <div class="timeline-desc">All 21 skills, 8 rules, full test coverage -- production release</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>Built by <a href="https://github.com/TMHSDigital">TMHSDigital</a> &middot; <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin">GitHub</a></div>
+  <div class="footer-line">Licensed under CC-BY-NC-ND-4.0</div>
+</footer>
+
+</body>
+</html>
