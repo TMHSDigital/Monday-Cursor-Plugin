@@ -1,1 +1,1 @@
-# Monday-Cursor
+# Monday-Cursor-Plugin
