@@ -1,0 +1,17 @@
+{
+  "accent": "#6C3EC6",
+  "accentLight": "#9D60F7",
+  "heroGradientFrom": "#0d1117",
+  "heroGradientTo": "#1a1230",
+  "favicon": "assets/logo.png",
+  "ogImage": "assets/logo.png",
+  "installSteps": [
+    "Clone the repository",
+    "Open the folder in Cursor IDE",
+    "Configure the Monday.com MCP plugin in your editor settings",
+    "Start using the AI skills and rules"
+  ],
+  "links": {
+    "github": "https://github.com/TMHSDigital/Monday-Cursor-Plugin"
+  }
+}
