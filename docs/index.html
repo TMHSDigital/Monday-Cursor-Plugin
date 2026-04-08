@@ -142,6 +142,9 @@
       .section-actions { margin-left: 0; }
     }
 
+    /* SR ONLY */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
     /* REDUCED MOTION */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -194,118 +197,126 @@
     <div class="section-header">
       <h2>Skills</h2>
       <span class="count">21</span>
+      <div class="section-actions">
+        <button class="btn-sm toggle-section" data-target="skills-body">Collapse</button>
+      </div>
     </div>
-    <table class="data-table">
-      <thead><tr><th>Name</th><th>Description</th></tr></thead>
-      <tbody>
-        
-        <tr>
-          <td class="name-cell">Monday API Reference</td>
-          <td>Navigate the Monday.com GraphQL API with schema introspection, query building, pagination patterns, complexity budgets, and the all_monday_api escape hatch.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Board Insights</td>
-          <td>Aggregate, filter, and analyze Monday.com board data for reporting, summaries, and decision-making.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Board Management</td>
-          <td>Create, configure, manage, duplicate, archive, and delete Monday.com boards including columns, groups, views, and permissions.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Chart Visualization</td>
-          <td>Render pie charts, bar charts, battery/progress widgets, and interactive tables from Monday.com board data.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Column Types Guide</td>
-          <td>Deep reference for all Monday.com column types including value formats, creation settings, and common patterns for status, timeline, people, formula, mirror, and more.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Dashboard Builder</td>
-          <td>Create dashboards, add widgets, configure chart types, and connect boards to build reporting views in Monday.com.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Docs Management</td>
-          <td>Create, read, and append content to Monday Docs; manage version history and doc structure within workspaces.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Form Builder</td>
-          <td>Create Monday.com forms with questions, conditional logic, and response boards for data collection and intake workflows.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Item Operations</td>
-          <td>Create, update, move, archive, and delete Monday.com items and subitems across boards and groups.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Notetaker Meetings</td>
-          <td>Access meeting notes, transcripts, summaries, and action items from Monday.com Notetaker for team meetings.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Notifications</td>
-          <td>Send bell and email notifications to Monday.com users for alerts, reminders, and targeted communication.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Project Tracking</td>
-          <td>Track project timelines, dependencies, critical path, milestones, and status across Monday.com boards for project management.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Resource Management</td>
-          <td>Manage team assignments, workload distribution, and capacity planning across Monday.com boards and projects.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Sprint Planning</td>
-          <td>Set up sprint boards, configure sprint metadata, plan iterations, and organize tasks for agile development on Monday.com.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Sprint Review</td>
-          <td>Analyze completed sprints for velocity, burndown, completion rates, and team performance on Monday.com.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Tags and Assets</td>
-          <td>Manage tags for item categorization and handle file/asset uploads, downloads, and organization on Monday.com.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Updates and Communication</td>
-          <td>Post updates and replies on Monday.com items and boards, use mentions, and read update history for collaboration.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday User and Team Management</td>
-          <td>Manage Monday.com users and teams including lookups, permissions, team membership, and current user context.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Webhook Management</td>
-          <td>Create, list, and delete Monday.com webhooks with challenge verification, JWT authentication, and event handling.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Workflow Automation</td>
-          <td>Create and manage Monday.com automation recipes with triggers, conditions, and actions for workflow automation.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Workspace Organizer</td>
-          <td>Organize Monday.com workspaces, folders, and board hierarchy for clean project structure.</td>
-        </tr>
-        
-      </tbody>
-    </table>
+    <details class="cat-group" id="skills-body" open>
+      <summary class="sr-only">Skills list</summary>
+      <div class="cat-body">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Description</th></tr></thead>
+          <tbody>
+            
+            <tr>
+              <td class="name-cell">Monday API Reference</td>
+              <td>Navigate the Monday.com GraphQL API with schema introspection, query building, pagination patterns, complexity budgets, and the all_monday_api escape hatch.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Board Insights</td>
+              <td>Aggregate, filter, and analyze Monday.com board data for reporting, summaries, and decision-making.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Board Management</td>
+              <td>Create, configure, manage, duplicate, archive, and delete Monday.com boards including columns, groups, views, and permissions.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Chart Visualization</td>
+              <td>Render pie charts, bar charts, battery/progress widgets, and interactive tables from Monday.com board data.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Column Types Guide</td>
+              <td>Deep reference for all Monday.com column types including value formats, creation settings, and common patterns for status, timeline, people, formula, mirror, and more.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Dashboard Builder</td>
+              <td>Create dashboards, add widgets, configure chart types, and connect boards to build reporting views in Monday.com.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Docs Management</td>
+              <td>Create, read, and append content to Monday Docs; manage version history and doc structure within workspaces.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Form Builder</td>
+              <td>Create Monday.com forms with questions, conditional logic, and response boards for data collection and intake workflows.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Item Operations</td>
+              <td>Create, update, move, archive, and delete Monday.com items and subitems across boards and groups.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Notetaker Meetings</td>
+              <td>Access meeting notes, transcripts, summaries, and action items from Monday.com Notetaker for team meetings.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Notifications</td>
+              <td>Send bell and email notifications to Monday.com users for alerts, reminders, and targeted communication.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Project Tracking</td>
+              <td>Track project timelines, dependencies, critical path, milestones, and status across Monday.com boards for project management.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Resource Management</td>
+              <td>Manage team assignments, workload distribution, and capacity planning across Monday.com boards and projects.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Sprint Planning</td>
+              <td>Set up sprint boards, configure sprint metadata, plan iterations, and organize tasks for agile development on Monday.com.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Sprint Review</td>
+              <td>Analyze completed sprints for velocity, burndown, completion rates, and team performance on Monday.com.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Tags and Assets</td>
+              <td>Manage tags for item categorization and handle file/asset uploads, downloads, and organization on Monday.com.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Updates and Communication</td>
+              <td>Post updates and replies on Monday.com items and boards, use mentions, and read update history for collaboration.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday User and Team Management</td>
+              <td>Manage Monday.com users and teams including lookups, permissions, team membership, and current user context.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Webhook Management</td>
+              <td>Create, list, and delete Monday.com webhooks with challenge verification, JWT authentication, and event handling.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Workflow Automation</td>
+              <td>Create and manage Monday.com automation recipes with triggers, conditions, and actions for workflow automation.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Workspace Organizer</td>
+              <td>Organize Monday.com workspaces, folders, and board hierarchy for clean project structure.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </details>
   </section>
   
 
@@ -315,61 +326,69 @@
     <div class="section-header">
       <h2>Rules</h2>
       <span class="count">8</span>
+      <div class="section-actions">
+        <button class="btn-sm toggle-section" data-target="rules-body">Collapse</button>
+      </div>
     </div>
-    <table class="data-table">
-      <thead><tr><th>Name</th><th>Scope</th><th>Description</th></tr></thead>
-      <tbody>
-        
-        <tr>
-          <td class="name-cell">Monday Api Token Safety</td>
-          <td class="scope-cell"></td>
-          <td>Flag hardcoded Monday.com API tokens, OAuth secrets, and webhook signing secrets in source code.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Board Structure</td>
-          <td class="scope-cell"></td>
-          <td>Flag Monday.com board anti-patterns including excessive columns, missing groups, and inconsistent naming conventions.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Column Value Format</td>
-          <td class="scope-cell"></td>
-          <td>Flag malformed Monday.com column value JSON including incorrect status, date, timeline, and people column formats.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Error Handling</td>
-          <td class="scope-cell"></td>
-          <td>Flag unchecked Monday.com API responses, missing error parsing, and ignored error fields in GraphQL results.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Graphql Best Practices</td>
-          <td class="scope-cell"></td>
-          <td>Flag Monday.com GraphQL anti-patterns including over-fetching, missing pagination, and unbounded queries.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Mcp Tool Preference</td>
-          <td class="scope-cell"></td>
-          <td>Flag raw HTTP calls to api.monday.com when Monday MCP tools are available in Cursor.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Rate Limit Awareness</td>
-          <td class="scope-cell"></td>
-          <td>Flag missing rate limit handling, unbounded API loops, and absent complexity budget awareness in Monday.com API code.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Monday Webhook Validation</td>
-          <td class="scope-cell"></td>
-          <td>Flag missing webhook challenge verification, unvalidated payloads, and exposed webhook URLs in Monday.com integrations.</td>
-        </tr>
-        
-      </tbody>
-    </table>
+    <details class="cat-group" id="rules-body" open>
+      <summary class="sr-only">Rules list</summary>
+      <div class="cat-body">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Scope</th><th>Description</th></tr></thead>
+          <tbody>
+            
+            <tr>
+              <td class="name-cell">Monday Api Token Safety</td>
+              <td class="scope-cell"></td>
+              <td>Flag hardcoded Monday.com API tokens, OAuth secrets, and webhook signing secrets in source code.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Board Structure</td>
+              <td class="scope-cell"></td>
+              <td>Flag Monday.com board anti-patterns including excessive columns, missing groups, and inconsistent naming conventions.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Column Value Format</td>
+              <td class="scope-cell"></td>
+              <td>Flag malformed Monday.com column value JSON including incorrect status, date, timeline, and people column formats.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Error Handling</td>
+              <td class="scope-cell"></td>
+              <td>Flag unchecked Monday.com API responses, missing error parsing, and ignored error fields in GraphQL results.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Graphql Best Practices</td>
+              <td class="scope-cell"></td>
+              <td>Flag Monday.com GraphQL anti-patterns including over-fetching, missing pagination, and unbounded queries.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Mcp Tool Preference</td>
+              <td class="scope-cell"></td>
+              <td>Flag raw HTTP calls to api.monday.com when Monday MCP tools are available in Cursor.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Rate Limit Awareness</td>
+              <td class="scope-cell"></td>
+              <td>Flag missing rate limit handling, unbounded API loops, and absent complexity budget awareness in Monday.com API code.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Monday Webhook Validation</td>
+              <td class="scope-cell"></td>
+              <td>Flag missing webhook challenge verification, unvalidated payloads, and exposed webhook URLs in Monday.com integrations.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </details>
   </section>
   
 
@@ -740,18 +759,28 @@
   <!-- Install -->
   
   <section class="section" id="install">
-    <div class="section-header"><h2>Installation</h2></div>
-    <ol class="install-steps">
-      
-      <li><span>Clone the repository</span></li>
-      
-      <li><span>Open the folder in Cursor IDE</span></li>
-      
-      <li><span>Configure the Monday.com MCP plugin in your editor settings</span></li>
-      
-      <li><span>Start using the AI skills and rules</span></li>
-      
-    </ol>
+    <div class="section-header">
+      <h2>Installation</h2>
+      <div class="section-actions">
+        <button class="btn-sm toggle-section" data-target="install-body">Collapse</button>
+      </div>
+    </div>
+    <details class="cat-group" id="install-body" open>
+      <summary class="sr-only">Installation steps</summary>
+      <div class="cat-body">
+        <ol class="install-steps">
+          
+          <li><span>Clone the repository</span></li>
+          
+          <li><span>Open the folder in Cursor IDE</span></li>
+          
+          <li><span>Configure the Monday.com MCP plugin in your editor settings</span></li>
+          
+          <li><span>Start using the AI skills and rules</span></li>
+          
+        </ol>
+      </div>
+    </details>
   </section>
   
 
@@ -871,6 +900,18 @@
         var allOpen = Array.prototype.every.call(details, function (d) { return d.open; });
         details.forEach(function (d) { d.open = !allOpen; });
         btn.textContent = allOpen ? 'Expand all' : 'Collapse all';
+      });
+    })();
+
+    /* Section collapse/expand toggles (Skills, Rules) */
+    (function () {
+      document.querySelectorAll('.toggle-section').forEach(function (btn) {
+        var targetId = btn.getAttribute('data-target');
+        var details = document.getElementById(targetId);
+        if (!details) return;
+        function updateLabel() { btn.textContent = details.open ? 'Collapse' : 'Expand'; }
+        btn.addEventListener('click', function () { details.open = !details.open; updateLabel(); });
+        details.addEventListener('toggle', updateLabel);
       });
     })();
 
