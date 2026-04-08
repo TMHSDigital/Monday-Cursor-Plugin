@@ -13,5 +13,19 @@
   ],
   "links": {
     "github": "https://github.com/TMHSDigital/Monday-Cursor-Plugin"
-  }
+  },
+  "quickStart": {
+    "title": "Get started in seconds",
+    "command": "git clone https://github.com/TMHSDigital/Monday-Cursor-Plugin.git\ncd Monday-Cursor-Plugin && cursor ."
+  },
+  "compatibility": {
+    "cursor": "0.49+",
+    "os": ["Windows", "macOS", "Linux"],
+    "claude": "Claude Code compatible"
+  },
+  "relatedTools": [
+    { "name": "Docker Developer Tools", "url": "https://tmhsdigital.github.io/Docker-Developer-Tools/", "description": "Docker container workflows for Cursor" },
+    { "name": "Steam Cursor Plugin", "url": "https://tmhsdigital.github.io/Steam-Cursor-Plugin/", "description": "Steam and Steamworks integration for Cursor" },
+    { "name": "Developer Tools Directory", "url": "https://tmhsdigital.github.io/Developer-Tools-Directory/", "description": "Browse all TMHSDigital developer tools" }
+  ]
 }
