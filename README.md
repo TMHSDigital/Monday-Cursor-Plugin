@@ -10,22 +10,22 @@
 
 <!-- Row 1: Identity -->
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.1.0-6C3EC6?style=flat-square" alt="Version" />
-  <img src="https://img.shields.io/github/v/release/TMHSDigital/Monday-Cursor-Plugin?style=flat-square&color=6C3EC6" alt="Release" />
-  <img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-4B286D?style=flat-square" alt="License" />
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/releases"><img src="https://img.shields.io/badge/version-0.1.0-6C3EC6?style=flat-square" alt="Version" /></a>
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/releases"><img src="https://img.shields.io/github/v/release/TMHSDigital/Monday-Cursor-Plugin?style=flat-square&color=6C3EC6" alt="Release" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-4B286D?style=flat-square" alt="License" /></a>
   <a href="https://tmhsdigital.github.io/Monday-Cursor-Plugin/"><img src="https://img.shields.io/badge/docs-website-6C3EC6?style=flat-square" alt="Docs" /></a>
 </p>
 
 <!-- Row 2: CI -->
 <p align="center">
-  <img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Monday-Cursor-Plugin/validate.yml?label=validate&style=flat-square" alt="Validate" />
-  <img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Monday-Cursor-Plugin/codeql.yml?label=codeql&style=flat-square" alt="CodeQL" />
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Monday-Cursor-Plugin/validate.yml?label=validate&style=flat-square" alt="Validate" /></a>
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Monday-Cursor-Plugin/codeql.yml?label=codeql&style=flat-square" alt="CodeQL" /></a>
 </p>
 
 <!-- Row 3: Community -->
 <p align="center">
-  <img src="https://img.shields.io/github/stars/TMHSDigital/Monday-Cursor-Plugin?style=flat-square&color=4B286D" alt="Stars" />
-  <img src="https://img.shields.io/github/issues/TMHSDigital/Monday-Cursor-Plugin?style=flat-square&color=4B286D" alt="Issues" />
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Monday-Cursor-Plugin?style=flat-square&color=4B286D" alt="Stars" /></a>
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/issues"><img src="https://img.shields.io/github/issues/TMHSDigital/Monday-Cursor-Plugin?style=flat-square&color=4B286D" alt="Issues" /></a>
 </p>
 
 <!-- Row 4: Counts -->
