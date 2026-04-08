@@ -10,7 +10,7 @@
 
 <!-- Row 1: Identity -->
 <p align="center">
-  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/releases"><img src="https://img.shields.io/badge/version-0.1.0-6C3EC6?style=flat-square" alt="Version" /></a>
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/releases"><img src="https://img.shields.io/badge/version-0.2.0-6C3EC6?style=flat-square" alt="Version" /></a>
   <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/releases"><img src="https://img.shields.io/github/v/release/TMHSDigital/Monday-Cursor-Plugin?style=flat-square&color=6C3EC6" alt="Release" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-4B286D?style=flat-square" alt="License" /></a>
   <a href="https://tmhsdigital.github.io/Monday-Cursor-Plugin/"><img src="https://img.shields.io/badge/docs-website-6C3EC6?style=flat-square" alt="Docs" /></a>
