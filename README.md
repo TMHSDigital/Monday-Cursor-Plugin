@@ -18,6 +18,7 @@
 
 <!-- Row 2: CI -->
 <p align="center">
+  <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Monday-Cursor-Plugin/ci.yml?branch=main&style=flat-square&label=CI" alt="CI" /></a>
   <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Monday-Cursor-Plugin/validate.yml?label=validate&style=flat-square" alt="Validate" /></a>
   <a href="https://github.com/TMHSDigital/Monday-Cursor-Plugin/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Monday-Cursor-Plugin/codeql.yml?label=codeql&style=flat-square" alt="CodeQL" /></a>
 </p>
