@@ -6,10 +6,11 @@
   "favicon": "assets/logo.png",
   "ogImage": "assets/logo.png",
   "installSteps": [
-    "Clone the repository",
-    "Open the folder in Cursor IDE",
-    "Configure the Monday.com MCP plugin in your editor settings",
-    "Start using the AI skills and rules"
+    "<strong>Install the plugin:</strong><br><code>git clone https://github.com/TMHSDigital/Monday-Cursor-Plugin.git</code><br>Open the cloned folder in Cursor IDE.",
+    "<strong>Install the Monday MCP server</strong> from the Cursor Marketplace:<br>Open Cursor Settings &rarr; MCP &rarr; search <code>monday</code> &rarr; install <strong>Monday Developer Tools</strong>.",
+    "<strong>Get your Monday API token:</strong> Go to <a href=\"https://monday.com\" target=\"_blank\">monday.com</a> &rarr; Profile &rarr; Admin &rarr; API. Copy your personal token.",
+    "<strong>Configure auth:</strong> The Monday MCP plugin will prompt for your API token on first use, or you can set it in the plugin settings.",
+    "Restart Cursor. The 21 skills, 8 rules, and 45 MCP tools are now active. You can query boards, create items, manage sprints, and more."
   ],
   "links": {
     "github": "https://github.com/TMHSDigital/Monday-Cursor-Plugin"
