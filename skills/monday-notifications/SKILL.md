@@ -1,6 +1,7 @@
 ---
 name: monday-notifications
 description: Send bell and email notifications to Monday.com users for alerts, reminders, and targeted communication.
+standards-version: 1.6.3
 ---
 
 # Monday Notifications

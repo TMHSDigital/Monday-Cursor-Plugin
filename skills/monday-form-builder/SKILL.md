@@ -1,6 +1,7 @@
 ---
 name: monday-form-builder
 description: Create Monday.com forms with questions, conditional logic, and response boards for data collection and intake workflows.
+standards-version: 1.6.3
 ---
 
 # Monday Form Builder

@@ -1,6 +1,7 @@
 ---
 name: monday-board-management
 description: Create, configure, manage, duplicate, archive, and delete Monday.com boards including columns, groups, views, and permissions.
+standards-version: 1.6.3
 ---
 
 # Monday Board Management

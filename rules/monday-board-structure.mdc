@@ -4,6 +4,7 @@ alwaysApply: false
 globs:
   - "**/*.json"
   - "**/*.ts"
+standards-version: 1.6.3
 ---
 
 # Monday Board Structure

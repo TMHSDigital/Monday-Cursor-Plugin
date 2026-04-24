@@ -1,6 +1,7 @@
 ---
 description: Flag hardcoded Monday.com API tokens, OAuth secrets, and webhook signing secrets in source code.
 alwaysApply: true
+standards-version: 1.6.3
 ---
 
 # Monday API Token Safety

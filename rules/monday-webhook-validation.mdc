@@ -5,6 +5,7 @@ globs:
   - "**/*.ts"
   - "**/*.js"
   - "**/*.py"
+standards-version: 1.6.3
 ---
 
 # Monday Webhook Validation
