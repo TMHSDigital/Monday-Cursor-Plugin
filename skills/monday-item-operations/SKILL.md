@@ -1,6 +1,7 @@
 ---
 name: monday-item-operations
 description: Create, update, move, archive, and delete Monday.com items and subitems across boards and groups.
+standards-version: 1.6.3
 ---
 
 # Monday Item Operations

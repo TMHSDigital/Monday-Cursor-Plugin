@@ -1,6 +1,7 @@
 ---
 name: monday-sprint-planning
 description: Set up sprint boards, configure sprint metadata, plan iterations, and organize tasks for agile development on Monday.com.
+standards-version: 1.6.3
 ---
 
 # Monday Sprint Planning

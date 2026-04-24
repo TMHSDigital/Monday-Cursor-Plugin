@@ -1,6 +1,7 @@
 ---
 name: monday-user-and-team-management
 description: Manage Monday.com users and teams including lookups, permissions, team membership, and current user context.
+standards-version: 1.6.3
 ---
 
 # Monday User and Team Management

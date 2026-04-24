@@ -1,6 +1,7 @@
 ---
 name: monday-dashboard-builder
 description: Create dashboards, add widgets, configure chart types, and connect boards to build reporting views in Monday.com.
+standards-version: 1.6.3
 ---
 
 # Monday Dashboard Builder

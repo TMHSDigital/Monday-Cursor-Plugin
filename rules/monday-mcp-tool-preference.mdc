@@ -1,6 +1,7 @@
 ---
 description: Flag raw HTTP calls to api.monday.com when Monday MCP tools are available in Cursor.
 alwaysApply: true
+standards-version: 1.6.3
 ---
 
 # Monday MCP Tool Preference
