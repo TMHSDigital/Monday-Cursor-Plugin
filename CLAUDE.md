@@ -1,3 +1,5 @@
+<!-- standards-version: 1.6.3 -->
+
 # Monday Developer Tools -- Project Brain
 
 Monday.com workflows for Cursor IDE. 21 skills, 8 rules, leveraging the official Monday MCP plugin (~45 tools).
