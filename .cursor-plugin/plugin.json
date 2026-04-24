@@ -1,7 +1,7 @@
 {
   "name": "monday-cursor-plugin",
   "displayName": "Monday Developer Tools",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "21 skills, 8 rules for Monday.com workflows in Cursor -- boards, items, sprints, docs, dashboards, and the full GraphQL API.",
   "author": {
     "name": "TMHSDigital",
