@@ -1,7 +1,7 @@
 ---
 name: monday-board-insights
 description: Aggregate, filter, and analyze Monday.com board data for reporting, summaries, and decision-making.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Monday Board Insights

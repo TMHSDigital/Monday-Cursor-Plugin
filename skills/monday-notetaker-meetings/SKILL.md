@@ -1,7 +1,7 @@
 ---
 name: monday-notetaker-meetings
 description: Access meeting notes, transcripts, summaries, and action items from Monday.com Notetaker for team meetings.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Monday Notetaker Meetings
