@@ -31,3 +31,4 @@ Desktop.ini
 # Logs
 *.log
 npm-debug.log*
+# Phase 2c: release-doc-sync verification trigger (DTD#5)
