@@ -1,7 +1,7 @@
 ---
 name: monday-docs-management
 description: Create, read, and append content to Monday Docs; manage version history and doc structure within workspaces.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Monday Docs Management

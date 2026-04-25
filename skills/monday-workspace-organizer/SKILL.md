@@ -1,7 +1,7 @@
 ---
 name: monday-workspace-organizer
 description: Organize Monday.com workspaces, folders, and board hierarchy for clean project structure.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Monday Workspace Organizer

@@ -1,7 +1,7 @@
 ---
 name: monday-project-tracking
 description: Track project timelines, dependencies, critical path, milestones, and status across Monday.com boards for project management.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Monday Project Tracking
