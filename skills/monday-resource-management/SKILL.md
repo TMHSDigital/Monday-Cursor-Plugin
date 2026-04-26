@@ -1,7 +1,7 @@
 ---
 name: monday-resource-management
 description: Manage team assignments, workload distribution, and capacity planning across Monday.com boards and projects.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday Resource Management

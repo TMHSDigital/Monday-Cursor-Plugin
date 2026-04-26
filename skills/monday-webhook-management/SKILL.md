@@ -1,7 +1,7 @@
 ---
 name: monday-webhook-management
 description: Create, list, and delete Monday.com webhooks with challenge verification, JWT authentication, and event handling.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday Webhook Management

@@ -1,7 +1,7 @@
 ---
 name: monday-tags-and-assets
 description: Manage tags for item categorization and handle file/asset uploads, downloads, and organization on Monday.com.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday Tags and Assets
