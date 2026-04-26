@@ -1,7 +1,7 @@
 ---
 name: monday-column-types-guide
 description: Deep reference for all Monday.com column types including value formats, creation settings, and common patterns for status, timeline, people, formula, mirror, and more.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday Column Types Guide

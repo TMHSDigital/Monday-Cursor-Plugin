@@ -1,7 +1,7 @@
 ---
 name: monday-api-reference
 description: Navigate the Monday.com GraphQL API with schema introspection, query building, pagination patterns, complexity budgets, and the all_monday_api escape hatch.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday API Reference

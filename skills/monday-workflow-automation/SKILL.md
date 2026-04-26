@@ -1,7 +1,7 @@
 ---
 name: monday-workflow-automation
 description: Create and manage Monday.com automation recipes with triggers, conditions, and actions for workflow automation.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday Workflow Automation

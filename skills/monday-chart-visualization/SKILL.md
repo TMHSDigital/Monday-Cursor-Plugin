@@ -1,7 +1,7 @@
 ---
 name: monday-chart-visualization
 description: Render pie charts, bar charts, battery/progress widgets, and interactive tables from Monday.com board data.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday Chart Visualization

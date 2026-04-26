@@ -1,7 +1,7 @@
 ---
 name: monday-updates-and-communication
 description: Post updates and replies on Monday.com items and boards, use mentions, and read update history for collaboration.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Monday Updates and Communication
