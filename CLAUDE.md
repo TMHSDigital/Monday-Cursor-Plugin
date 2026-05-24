@@ -4,7 +4,7 @@
 
 Monday.com workflows for Cursor IDE. 21 skills, 8 rules, leveraging the official Monday MCP plugin (~45 tools).
 
-**Version:** 0.4.5
+**Version:** 0.4.6
 
 ## Directory Structure
 
