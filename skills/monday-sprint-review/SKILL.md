@@ -1,7 +1,7 @@
 ---
 name: monday-sprint-review
 description: Analyze completed sprints for velocity, burndown, completion rates, and team performance on Monday.com.
-standards-version: 1.9.0
+standards-version: 1.10.0
 ---
 
 # Monday Sprint Review
